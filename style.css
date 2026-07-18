@@ -105,11 +105,10 @@ body {
   display: block;
 }
 
-/* On PC: swap the photo banner for a plain orange bar, same height/position the image would take up.
-   The banner image is 1600x800 (2:1), so at the 1100px max-width it renders at 550px tall — matched below. */
+/* On PC: swap the photo banner for a plain orange bar — a slim bar, not the full image height */
 @media (min-width: 769px) {
   .banner {
-    height: 550px;
+    height: 220px;
     background-color: #ff8c1a;
   }
 
