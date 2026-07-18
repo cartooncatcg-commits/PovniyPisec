@@ -17,7 +17,9 @@ navButtons.forEach(btn => {
 // ADDS extra breathing room — it can never shrink a bookmark enough to clip its own text,
 // and the upper bound keeps any bookmark from getting comically long.
 navButtons.forEach(btn => {
-  const sidePadding = Math.floor(Math.random() * (26 - 10 + 1)) + 10; // 10–26px each side
+  const isMobile = window.innerWidth <= 768;
+  const [min, max] = isMobile ? [10, 20] : [22, 42]; // narrower range on mobile so all 5 fit on screen
+  const sidePadding = Math.floor(Math.random() * (max - min + 1)) + min;
   btn.style.paddingLeft = `${sidePadding}px`;
   btn.style.paddingRight = `${sidePadding}px`;
 });

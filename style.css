@@ -115,10 +115,6 @@ body {
   .banner-img {
     display: none;
   }
-
-  .nav-buttons {
-    margin-top: -55px; /* the banner is taller here, so pull the bookmarks up further to overlap visibly */
-  }
 }
 
 .status-badge {
@@ -230,7 +226,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  padding: 10px 12px 18px;
+  padding: 20px 14px 8px; /* more room on top, less on bottom — text sits close to the point */
   border: none;
   color: #ffffff;
   white-space: nowrap;
@@ -273,10 +269,17 @@ body {
 @media (max-width: 400px) {
   .nav-buttons {
     margin-top: -14px;
+    gap: 4px;
   }
 
   .nav-btn {
     font-size: 0.64rem;
-    padding: 8px 8px 15px;
+    padding: 16px 8px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-buttons {
+    gap: 5px;
   }
 }
