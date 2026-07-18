@@ -130,12 +130,12 @@ body {
 .status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
-  padding: 7px 20px;
+  padding: 8px 22px;
   border-radius: 999px;
   background-color: #ffffff;
   border: 2px solid transparent;
@@ -143,10 +143,36 @@ body {
 }
 
 .status-dot {
+  position: relative;
   width: 9px;
   height: 9px;
   border-radius: 50%;
   flex-shrink: 0;
+  z-index: 1;
+}
+
+/* Soft pulsing ring behind the dot, like an "online" indicator */
+.status-dot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1;
+  animation: status-pulse 1.8s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
 }
 
 /* Sits directly on the bottom edge of the banner image */
@@ -155,7 +181,7 @@ body {
   left: 50%;
   bottom: 10px;
   transform: translateX(-50%);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
 }
 
 .status-badge.open {
@@ -165,12 +191,18 @@ body {
 .status-badge.open .status-dot {
   background-color: #2e9e56;
 }
+.status-badge.open .status-dot::before {
+  background-color: #2e9e56;
+}
 
 .status-badge.closed {
   color: #d24545;
   border-color: #d24545;
 }
 .status-badge.closed .status-dot {
+  background-color: #d24545;
+}
+.status-badge.closed .status-dot::before {
   background-color: #d24545;
 }
 
