@@ -210,7 +210,7 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   gap: 10px;
-  margin-top: -26px; /* pulls the row up so bookmarks stick half-way out of the banner */
+  margin-top: -20px; /* pulls the row up so bookmarks stick half-way out of the banner */
   padding: 0 8px 6px;
   overflow-x: auto; /* safety net on very narrow screens, buttons are sized to avoid needing it */
 }
@@ -235,11 +235,11 @@ body {
 }
 
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
-.nav-btn:nth-child(1) { --y: -6px; }
-.nav-btn:nth-child(2) { --y: 5px; }
-.nav-btn:nth-child(3) { --y: -11px; }
-.nav-btn:nth-child(4) { --y: 2px; }
-.nav-btn:nth-child(5) { --y: -4px; }
+.nav-btn:nth-child(1) { --y: -3px; }
+.nav-btn:nth-child(2) { --y: 3px; }
+.nav-btn:nth-child(3) { --y: -5px; }
+.nav-btn:nth-child(4) { --y: 1px; }
+.nav-btn:nth-child(5) { --y: -2px; }
 
 .nav-btn:hover {
   filter: brightness(1.08);
@@ -264,6 +264,10 @@ body {
 }
 
 @media (max-width: 400px) {
+  .nav-buttons {
+    margin-top: -14px;
+  }
+
   .nav-btn {
     font-size: 0.64rem;
     padding: 8px 8px 15px;
