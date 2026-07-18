@@ -12,16 +12,11 @@ navButtons.forEach(btn => {
   btn.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 });
 
-// Give each bookmark a random length by varying its side padding.
-// The text itself always sizes the button first (flex: 0 0 auto), so this only ever
-// ADDS extra breathing room — it can never shrink a bookmark enough to clip its own text,
-// and the upper bound keeps any bookmark from getting comically long.
+// Give each bookmark a random LENGTH (how far it hangs down) by varying its bottom padding.
+// Limited on both ends so it's never too short (looks squashed) or too long (looks silly).
 navButtons.forEach(btn => {
-  const isMobile = window.innerWidth <= 768;
-  const [min, max] = isMobile ? [10, 20] : [22, 42]; // narrower range on mobile so all 5 fit on screen
-  const sidePadding = Math.floor(Math.random() * (max - min + 1)) + min;
-  btn.style.paddingLeft = `${sidePadding}px`;
-  btn.style.paddingRight = `${sidePadding}px`;
+  const extraLength = Math.floor(Math.random() * (26 - 6 + 1)) + 6; // 6–26px extra length
+  btn.style.paddingBottom = `${extraLength}px`;
 });
 
 const messages = {
