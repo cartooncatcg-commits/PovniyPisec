@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<title>My Site</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Falling snowflakes live on this canvas, behind everything else -->
+  <canvas id="snow-canvas"></canvas>
+
+  <!-- Banner (status badge sits on its bottom edge) -->
+  <header class="banner">
+    <img src="banner.jpg" alt="Site banner" class="banner-img">
+    <span id="status-text" class="status-text status-overlay">...</span>
+  </header>
+
+  <!-- Cyan divider stripe -->
+  <div class="banner-stripe"></div>
+
+  <!-- Navigation buttons -->
+  <nav class="nav-buttons">
+    <button class="nav-btn active" data-page="home">головна</button>
+    <button class="nav-btn" data-page="discounts">знижки</button>
+    <button class="nav-btn" data-page="promos">акції</button>
+    <button class="nav-btn" data-page="news">новини</button>
+    <button class="nav-btn" data-page="product">товар</button>
+  </nav>
+
+  <!-- Page message area -->
+  <div id="page-content" class="page-content"></div>
+
+  <script src="snow.js"></script>
+  <script src="status.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

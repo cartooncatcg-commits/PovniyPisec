@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color-scheme: light; /* stops some Android browsers from auto-inverting white to black */
+}
+
+/* Extra safety net: some browsers/OS dark modes still try to override page colors.
+   This forces every part of the site to keep its real colors no matter what. */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #ffffff !important;
+  }
+
+  body {
+    color: #222222 !important;
+  }
+
+  .banner {
+    background-color: #ffffff !important;
+  }
+
+  .banner-stripe {
+    background-color: #00c3dd !important;
+  }
+
+  .nav-buttons {
+    background-color: #ffffff !important;
+  }
+
+  .nav-btn {
+    background-color: #ffffff !important;
+    color: #009bab !important;
+    border-color: #00c3dd !important;
+  }
+
+  .nav-btn.active {
+    background-color: #00c3dd !important;
+    color: #ffffff !important;
+  }
+
+  .status-text.open {
+    background-color: #e3f5e9 !important;
+    color: #2e7d46 !important;
+  }
+
+  .status-text.closed {
+    background-color: #fbe8e8 !important;
+    color: #c14b4b !important;
+  }
+
+  .page-content {
+    background-color: #ffffff !important;
+    color: #555555 !important;
+  }
+
+  @media (min-width: 769px) {
+    .banner {
+      background-color: #ff8c1a !important;
+    }
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222222;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Snowflake canvas: fixed, full screen, behind content, doesn't block clicks */
+#snow-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.banner {
+  width: 100%;
+  line-height: 0; /* removes small gap under inline image */
+  background-color: #ffffff; /* no more cyan outline — matches page background */
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 1100px; /* on wide/PC screens, keeps it centered with cyan on the sides */
+  height: auto;      /* always keeps natural proportions, never crops */
+  display: block;
+}
+
+/* On PC: swap the photo banner for a plain orange bar, same height/position the image would take up.
+   The banner image is 1600x800 (2:1), so at the 1100px max-width it renders at 550px tall — matched below. */
+@media (min-width: 769px) {
+  .banner {
+    height: 550px;
+    background-color: #ff8c1a;
+  }
+
+  .banner-img {
+    display: none;
+  }
+}
+
+.status-text {
+  font-size: 1.05rem;         /* made smaller, per request */
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+/* Sits directly on the bottom edge of the banner image */
+.status-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.status-text.open {
+  color: #2e7d46;              /* soft, readable green — not neon, not dark */
+  background-color: #e3f5e9;
+}
+
+.status-text.closed {
+  color: #c14b4b;               /* soft, readable red — not acidic, not too dark */
+  background-color: #fbe8e8;
+}
+
+/* Cyan divider stripe right under the banner */
+.banner-stripe {
+  width: 100%;
+  height: 10px;
+  background-color: #00c3dd;
+}
+
+/* Navigation buttons row */
+.nav-buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 8px;
+  overflow-x: auto; /* safety net on very narrow screens, buttons are sized to avoid needing it */
+}
+
+.nav-btn {
+  flex: 0 0 auto;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1.5px solid #00c3dd;
+  background-color: #ffffff;
+  color: #009bab;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  background-color: #00c3dd;
+  color: #ffffff;
+}
+
+/* Message area below the nav buttons */
+.page-content {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 20px 40px;
+  font-size: 1.1rem;
+  color: #555555;
+}
+
+@media (max-width: 400px) {
+  .nav-btn {
+    font-size: 0.7rem;
+    padding: 7px 8px;
+  }
+}
