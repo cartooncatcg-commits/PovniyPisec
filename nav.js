@@ -12,6 +12,16 @@ navButtons.forEach(btn => {
   btn.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 });
 
+// Give each bookmark a random length by varying its side padding.
+// The text itself always sizes the button first (flex: 0 0 auto), so this only ever
+// ADDS extra breathing room — it can never shrink a bookmark enough to clip its own text,
+// and the upper bound keeps any bookmark from getting comically long.
+navButtons.forEach(btn => {
+  const sidePadding = Math.floor(Math.random() * (26 - 10 + 1)) + 10; // 10–26px each side
+  btn.style.paddingLeft = `${sidePadding}px`;
+  btn.style.paddingRight = `${sidePadding}px`;
+});
+
 const messages = {
   home: '',                          // main page — no message shown
   discounts: 'Знижок поки що нема',

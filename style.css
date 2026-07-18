@@ -95,6 +95,7 @@ body {
   padding: 0;
   position: relative;
   top: 0;
+  z-index: 10; /* sits above the bookmarks so the overlapping part is hidden behind it */
 }
 
 .banner-img {
@@ -113,6 +114,10 @@ body {
 
   .banner-img {
     display: none;
+  }
+
+  .nav-buttons {
+    margin-top: -55px; /* the banner is taller here, so pull the bookmarks up further to overlap visibly */
   }
 }
 
@@ -195,6 +200,8 @@ body {
 
 /* Cyan divider stripe right under the banner */
 .banner-stripe {
+  position: relative;
+  z-index: 10; /* sits above the bookmarks, same as the banner */
   width: 100%;
   height: 10px;
   background-color: #00c3dd;
@@ -203,7 +210,7 @@ body {
 /* Navigation buttons row — styled like book bookmarks/tabs, overlapping up into the banner */
 .nav-buttons {
   position: relative;
-  z-index: 5;
+  z-index: 1; /* below the banner/stripe — the overlapping part gets hidden behind them */
   width: 100%;
   display: flex;
   align-items: flex-end;
