@@ -200,19 +200,23 @@ body {
   background-color: #00c3dd;
 }
 
-/* Navigation buttons row — styled like book bookmarks/tabs */
+/* Navigation buttons row — styled like book bookmarks/tabs, overlapping up into the banner */
 .nav-buttons {
+  position: relative;
+  z-index: 5;
   width: 100%;
   display: flex;
   align-items: flex-end;
   flex-wrap: nowrap;
   justify-content: center;
   gap: 10px;
-  padding: 26px 8px 6px;
+  margin-top: -26px; /* pulls the row up so bookmarks stick half-way out of the banner */
+  padding: 0 8px 6px;
   overflow-x: auto; /* safety net on very narrow screens, buttons are sized to avoid needing it */
 }
 
 .nav-btn {
+  --y: 0px;
   flex: 0 0 auto;
   font-family: inherit;
   font-size: 0.72rem;
@@ -226,22 +230,25 @@ body {
   cursor: pointer;
   clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  transform: translateY(var(--y));
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
-.nav-btn:nth-child(1) { transform: translateY(-6px); }
-.nav-btn:nth-child(2) { transform: translateY(5px); }
-.nav-btn:nth-child(3) { transform: translateY(-11px); }
-.nav-btn:nth-child(4) { transform: translateY(2px); }
-.nav-btn:nth-child(5) { transform: translateY(-4px); }
+.nav-btn:nth-child(1) { --y: -6px; }
+.nav-btn:nth-child(2) { --y: 5px; }
+.nav-btn:nth-child(3) { --y: -11px; }
+.nav-btn:nth-child(4) { --y: 2px; }
+.nav-btn:nth-child(5) { --y: -4px; }
 
 .nav-btn:hover {
   filter: brightness(1.08);
 }
 
+/* Pressed/selected bookmarks stick out a little further from the banner */
 .nav-btn.active {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(calc(var(--y) + 10px));
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Message area below the nav buttons */
