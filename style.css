@@ -148,7 +148,6 @@ body {
   height: 9px;
   border-radius: 50%;
   flex-shrink: 0;
-  z-index: 1;
 }
 
 /* Soft pulsing ring behind the dot, like an "online" indicator */
@@ -160,7 +159,6 @@ body {
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  z-index: -1;
   animation: status-pulse 1.8s ease-out infinite;
 }
 
