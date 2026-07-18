@@ -3,6 +3,7 @@
 // Weekends (Sat–Sun): open 08:00–17:00
 
 const statusEl = document.getElementById('status-text');
+const statusLabel = document.getElementById('status-label');
 
 function getKyivParts() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -37,7 +38,7 @@ function isOpenNow() {
 
 function updateStatus() {
   const open = isOpenNow();
-  statusEl.textContent = open ? 'відчинено' : 'зачинено';
+  statusLabel.textContent = open ? 'відчинено' : 'зачинено';
   statusEl.classList.toggle('open', open);
   statusEl.classList.toggle('closed', !open);
 }

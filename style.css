@@ -46,14 +46,24 @@ html, body {
     color: #ffffff !important;
   }
 
-  .status-text.open {
-    background-color: #e3f5e9 !important;
-    color: #2e7d46 !important;
+  .status-badge {
+    background-color: #ffffff !important;
   }
 
-  .status-text.closed {
-    background-color: #fbe8e8 !important;
-    color: #c14b4b !important;
+  .status-badge.open {
+    color: #2e9e56 !important;
+    border-color: #2e9e56 !important;
+  }
+  .status-badge.open .status-dot {
+    background-color: #2e9e56 !important;
+  }
+
+  .status-badge.closed {
+    color: #d24545 !important;
+    border-color: #d24545 !important;
+  }
+  .status-badge.closed .status-dot {
+    background-color: #d24545 !important;
   }
 
   .page-content {
@@ -117,13 +127,26 @@ body {
   }
 }
 
-.status-text {
-  font-size: 1.05rem;         /* made smaller, per request */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  padding: 6px 18px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 7px 20px;
   border-radius: 999px;
-  transition: color 0.4s ease, background-color 0.4s ease;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* Sits directly on the bottom edge of the banner image */
@@ -132,17 +155,23 @@ body {
   left: 50%;
   bottom: 10px;
   transform: translateX(-50%);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 }
 
-.status-text.open {
-  color: #2e7d46;              /* soft, readable green — not neon, not dark */
-  background-color: #e3f5e9;
+.status-badge.open {
+  color: #2e9e56;
+  border-color: #2e9e56;
+}
+.status-badge.open .status-dot {
+  background-color: #2e9e56;
 }
 
-.status-text.closed {
-  color: #c14b4b;               /* soft, readable red — not acidic, not too dark */
-  background-color: #fbe8e8;
+.status-badge.closed {
+  color: #d24545;
+  border-color: #d24545;
+}
+.status-badge.closed .status-dot {
+  background-color: #d24545;
 }
 
 /* Cyan divider stripe right under the banner */
