@@ -227,7 +227,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.4px;
   padding: 20px 14px 8px; /* more room on top, less on bottom — text sits close to the point */
-  border: none;
+  border: 1.5px solid #00c3dd;
   color: #ffffff;
   white-space: nowrap;
   cursor: pointer;
