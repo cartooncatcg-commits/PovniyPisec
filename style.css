@@ -35,17 +35,6 @@ html, body {
     background-color: #ffffff !important;
   }
 
-  .nav-btn {
-    background-color: #ffffff !important;
-    color: #009bab !important;
-    border-color: #00c3dd !important;
-  }
-
-  .nav-btn.active {
-    background-color: #00c3dd !important;
-    color: #ffffff !important;
-  }
-
   .status-badge {
     background-color: #ffffff !important;
   }
@@ -211,36 +200,48 @@ body {
   background-color: #00c3dd;
 }
 
-/* Navigation buttons row */
+/* Navigation buttons row — styled like book bookmarks/tabs */
 .nav-buttons {
   width: 100%;
   display: flex;
+  align-items: flex-end;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: 6px;
-  padding: 12px 8px;
+  gap: 10px;
+  padding: 26px 8px 6px;
   overflow-x: auto; /* safety net on very narrow screens, buttons are sized to avoid needing it */
 }
 
 .nav-btn {
   flex: 0 0 auto;
   font-family: inherit;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1.5px solid #00c3dd;
-  background-color: #ffffff;
-  color: #009bab;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 10px 12px 18px;
+  border: none;
+  color: #ffffff;
   white-space: nowrap;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.nav-btn.active,
+/* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
+.nav-btn:nth-child(1) { transform: translateY(-6px); }
+.nav-btn:nth-child(2) { transform: translateY(5px); }
+.nav-btn:nth-child(3) { transform: translateY(-11px); }
+.nav-btn:nth-child(4) { transform: translateY(2px); }
+.nav-btn:nth-child(5) { transform: translateY(-4px); }
+
 .nav-btn:hover {
-  background-color: #00c3dd;
-  color: #ffffff;
+  filter: brightness(1.08);
+}
+
+.nav-btn.active {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Message area below the nav buttons */
@@ -257,7 +258,7 @@ body {
 
 @media (max-width: 400px) {
   .nav-btn {
-    font-size: 0.7rem;
-    padding: 7px 8px;
+    font-size: 0.64rem;
+    padding: 8px 8px 15px;
   }
 }
