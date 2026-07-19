@@ -22,6 +22,7 @@ navButtons.forEach(btn => {
 
   if (isCat) {
     btn.classList.add('shape-cat');
+    btn.style.backgroundColor = '#1a1a1a'; // always black, no matter the random color rolled above
     return;
   }
 
