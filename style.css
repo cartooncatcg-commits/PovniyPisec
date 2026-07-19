@@ -115,6 +115,10 @@ body {
   .banner-img {
     display: none;
   }
+
+  .nav-btn {
+    border-width: 3px; /* thin border wasn't visible enough at this size */
+  }
 }
 
 .status-badge {
