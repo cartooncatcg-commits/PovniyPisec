@@ -209,7 +209,7 @@ body {
   z-index: 1; /* below the banner/stripe — the overlapping part gets hidden behind them */
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start; /* fixed attachment point at the top, regardless of each bookmark's random length */
   flex-wrap: nowrap;
   justify-content: center;
   gap: 10px;
