@@ -257,18 +257,41 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 88%, 85% 100%, 15% 100%, 0 88%);
 }
 
-/* Ultra-rare bookmark: cat head silhouette (1-in-100 chance, set in nav.js) */
+/* Ultra-rare bookmark: upside-down cat silhouette — circle with two ears pointing down (1-in-250 chance, set in nav.js) */
 .nav-btn.shape-cat {
-  width: 80px;
-  height: 84px;
-  padding: 0 0 8px;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border-radius: 50%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  font-size: 0.58rem;
+  font-size: 0.55rem;
   border: 2px solid #ffffff;
   box-shadow: 0 0 0 2px #e02424, 0 3px 7px rgba(0, 0, 0, 0.25);
-  clip-path: path('M10,2 L33,40 L50,24 L67,40 L90,2 C97,25 96,52 90,64 C96,80 82,96 62,99 C54,101 46,101 38,99 C18,96 4,80 10,64 C4,52 3,25 10,2 Z');
+}
+
+.nav-btn.shape-cat::before,
+.nav-btn.shape-cat::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 13px 20px 13px;
+  border-color: transparent transparent #1a1a1a transparent;
+}
+
+.nav-btn.shape-cat::before {
+  left: 4px;
+  transform: rotate(-18deg);
+}
+
+.nav-btn.shape-cat::after {
+  right: 4px;
+  transform: rotate(18deg);
 }
 
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
