@@ -235,10 +235,38 @@ body {
   color: #ffffff;
   white-space: nowrap;
   cursor: pointer;
-  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
   transform: translateY(var(--y));
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Random bookmark tail shapes — one is picked per button by nav.js */
+.nav-btn.shape-point {
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+}
+
+.nav-btn.shape-flat {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.nav-btn.shape-notch {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+}
+
+.nav-btn.shape-taper {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 85% 100%, 15% 100%, 0 88%);
+}
+
+/* Ultra-rare bookmark: cat head with a little paw (1-in-100 chance, set in nav.js) */
+.nav-btn.shape-cat {
+  width: 74px;
+  height: 84px;
+  padding: 0 0 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.58rem;
+  clip-path: path('M17,8 L29,32 C12,35 6,50 10,60 C5,68 2,76 12,82 C18,79 22,72 25,67 C33,79 46,80 57,75 C68,70 73,57 70,44 C68,34 63,29 55,27 L58,7 L45,25 Z');
 }
 
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
