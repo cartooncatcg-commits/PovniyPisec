@@ -276,22 +276,23 @@ body {
 .nav-btn.shape-cat::after {
   content: "";
   position: absolute;
-  bottom: -22px;
+  z-index: 2; /* keeps the ears above the "poki shcho nema" message text underneath */
+  top: 48px; /* overlaps well into the circle so the base is hidden — only the tip peeks out */
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 26px 16px 0 16px;
+  border-width: 30px 17px 0 17px;
   border-color: #1a1a1a transparent transparent transparent;
 }
 
 .nav-btn.shape-cat::before {
-  left: 2px;
-  transform: rotate(-18deg);
+  left: 4px;
+  transform: rotate(-16deg);
 }
 
 .nav-btn.shape-cat::after {
-  right: 2px;
-  transform: rotate(18deg);
+  right: 4px;
+  transform: rotate(16deg);
 }
 
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
