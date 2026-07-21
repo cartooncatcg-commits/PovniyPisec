@@ -12,18 +12,17 @@ navButtons.forEach(btn => {
   btn.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 });
 
-// Rare 1-in-100 chance: a bookmark becomes a little cat head with a paw instead of a normal tail shape.
-// Normal bookmarks get a random length + one of 4 tail shapes; the cat shape is fixed-size, so it skips both.
+// Rare 1-in-250 chance: a bookmark becomes black with a red border instead of the usual random color.
+// It still gets a normal random length + tail shape, just with different colors.
 const shapes = ['shape-point', 'shape-flat', 'shape-notch', 'shape-taper'];
-const CAT_CHANCE = 1 / 250;
+const RARE_CHANCE = 1 / 250;
 
 navButtons.forEach(btn => {
-  const isCat = Math.random() < CAT_CHANCE;
+  const isRare = Math.random() < RARE_CHANCE;
 
-  if (isCat) {
-    btn.classList.add('shape-cat');
-    btn.style.backgroundColor = '#1a1a1a'; // always black, no matter the random color rolled above
-    return;
+  if (isRare) {
+    btn.style.backgroundColor = '#1a1a1a';
+    btn.style.borderColor = '#e02424';
   }
 
   // Random LENGTH (how far it hangs down), limited so it's never too short or too long

@@ -262,44 +262,6 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 88%, 85% 100%, 15% 100%, 0 88%);
 }
 
-/* Ultra-rare bookmark: upside-down cat silhouette — circle with two ears pointing down (1-in-250 chance, set in nav.js) */
-.nav-btn.shape-cat {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  padding: 0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.55rem;
-  border: 2px solid #ffffff;
-  box-shadow: 0 0 0 2px #e02424, 0 3px 7px rgba(0, 0, 0, 0.25);
-}
-
-.nav-btn.shape-cat::before,
-.nav-btn.shape-cat::after {
-  content: "";
-  position: absolute;
-  z-index: 2; /* keeps the ears above the "poki shcho nema" message text underneath */
-  top: 48px; /* overlaps well into the circle so the base is hidden — only the tip peeks out */
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 30px 17px 0 17px;
-  border-color: #1a1a1a transparent transparent transparent;
-}
-
-.nav-btn.shape-cat::before {
-  left: 4px;
-  transform: rotate(-16deg);
-}
-
-.nav-btn.shape-cat::after {
-  right: 4px;
-  transform: rotate(16deg);
-}
-
 /* Staggered heights so the bookmarks look uneven, like tabs sticking out of a book */
 .nav-btn:nth-child(1) { --y: -3px; }
 .nav-btn:nth-child(2) { --y: 3px; }
