@@ -60,6 +60,11 @@ html, body {
     color: #555555 !important;
   }
 
+  .icon-btn {
+    background-color: #00c3dd !important;
+    color: #ffffff !important;
+  }
+
   @media (min-width: 769px) {
     .banner {
       background-color: #ff8c1a !important;
@@ -341,5 +346,58 @@ body {
 @media (max-width: 768px) {
   .nav-buttons {
     gap: 5px;
+  }
+}
+
+/* Floating icon buttons on the left side of the screen */
+.side-icons {
+  position: fixed;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 20;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00c3dd;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.08);
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 480px) {
+  .side-icons {
+    left: 8px;
+    gap: 10px;
+  }
+
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .icon-btn svg {
+    width: 19px;
+    height: 19px;
   }
 }
