@@ -328,6 +328,10 @@ body {
   .nav-buttons {
     gap: 5px;
   }
+
+  #person-btn {
+    display: none; /* profile/dev-mode icon is PC-only */
+  }
 }
 
 /* Floating icon buttons on the left side of the screen */
