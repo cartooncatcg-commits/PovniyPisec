@@ -69,6 +69,10 @@ html, body {
     .banner {
       background-color: #ff8c1a !important;
     }
+
+    .banner-title {
+      color: #ffffff !important;
+    }
   }
 }
 
@@ -110,6 +114,11 @@ body {
   display: block;
 }
 
+/* Text shown on the orange banner, PC only — hidden everywhere else by default */
+.banner-title {
+  display: none;
+}
+
 /* On PC: swap the photo banner for a plain orange bar — a slim bar, not the full image height */
 @media (min-width: 769px) {
   .banner {
@@ -119,6 +128,16 @@ body {
 
   .banner-img {
     display: none;
+  }
+
+  .banner-title {
+    display: block;
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    align-self: center;
   }
 
   .nav-btn {
